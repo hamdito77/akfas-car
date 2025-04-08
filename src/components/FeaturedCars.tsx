@@ -20,10 +20,10 @@ const FeaturedCars = () => {
     },
     {
       id: 3,
-      name: "Dacia Stepway",
-      image: "https://i.postimg.cc/Twk4VBpG/4.jpg",
+      name: "Dacia Stepway Automatique",
+      image: "https://i.postimg.cc/LX504RVf/stepway.jpg",
       category: "SUV",
-      features: ["5 Seats", "Petrol", "Air Conditioning", "Manual"]
+      features: ["5 Seats", "Gasoil", "Air Conditioning", "Automatique"]
     },
     {
       id: 4,
@@ -35,14 +35,14 @@ const FeaturedCars = () => {
     {
       id: 5,
       name: "Dacia Logan",
-      image: "https://i.postimg.cc/FKVqRYvY/3.jpg",
+      image: "https://i.postimg.cc/fbwrFYt8/logan.jpg",
       category: "Economy",
       features: ["5 Seats", "Petrol", "Air Conditioning", "Manual"]
     },
     {
       id: 6,
       name: "Skoda Fabia",
-      image: "https://i.postimg.cc/2yM9JvQK/5.jpg",
+      image: "https://i.postimg.cc/4NpZRbyG/skoda.jpg",
       category: "Economy",
       features: ["5 Seats", "Petrol", "Air Conditioning", "Manual"]
     }
