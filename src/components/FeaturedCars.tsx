@@ -27,10 +27,10 @@ const FeaturedCars = () => {
     },
     {
       id: 4,
-      name: "Dacia Sandero Automatique",
+      name: "Dacia Duster Automatique",
       image: "https://i.postimg.cc/4d40hX4B/2.jpg",
-      category: "Economy",
-      features: ["5 Seats", "Petrol", "Air Conditioning", "Automatic"]
+      category: "SUV",
+      features: ["5 Seats", "Gasoil", "Air Conditioning", "2/4"]
     },
     {
       id: 5,
