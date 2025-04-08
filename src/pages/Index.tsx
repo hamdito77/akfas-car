@@ -14,13 +14,15 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen flex flex-col">
       <Navbar />
-      <Hero />
-      <BookingForm />
-      <FeaturedCars />
-      <AboutSection />
-      <ContactSection />
+      <div className="flex-grow">
+        <Hero />
+        <BookingForm />
+        <FeaturedCars />
+        <AboutSection />
+        <ContactSection />
+      </div>
       <Footer />
     </main>
   );
