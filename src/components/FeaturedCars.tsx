@@ -6,9 +6,9 @@ const FeaturedCars = () => {
   const cars = [
     {
       id: 1,
-      name: "Dacia Duster Automatique",
+      name: "Dacia Sandero",
       image: "https://i.postimg.cc/1zQ2spkx/1.jpg",
-      category: "SUV",
+      category: "Economy",
       features: ["4x4", "5 Seats", "Petrol", "Automatic"]
     },
     {
