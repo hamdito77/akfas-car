@@ -19,5 +19,16 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: '/akfas-car/'
+  base: '/',
+  build: {
+    outDir: 'dist',
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+        assetFileNames: 'assets/[name].[ext]',
+        entryFileNames: 'assets/[name].js'
+      }
+    }
+  }
 }));
