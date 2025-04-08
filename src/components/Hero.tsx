@@ -1,8 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   const scrollToBooking = () => {
     // Scroll to booking form
     const bookingForm = document.querySelector('form');
@@ -33,17 +36,17 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 text-shadow-lg">
-            Discover Dakhla With Our Premium Car Rental Service
+            {t('discover_dakhla')}
           </h1>
           <p className="text-white/90 text-xl mb-8 max-w-xl text-shadow">
-            Explore the beauty of Morocco's hidden gem with the best vehicles for your journey.
+            {t('explore_beauty')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white" onClick={scrollToBooking}>
-              Book a Car Now
+              {t('book_car_now')}
             </Button>
             <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30">
-              Explore Our Fleet
+              {t('explore_fleet')}
             </Button>
           </div>
         </div>
