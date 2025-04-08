@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -7,27 +6,45 @@ const FeaturedCars = () => {
   const cars = [
     {
       id: 1,
-      name: "Dacia Duster 4x4",
-      price: 40,
-      image: "https://images.unsplash.com/photo-1469041797191-50ace28483c3",
+      name: "Dacia Duster Automatique",
+      image: "https://i.postimg.cc/1zQ2spkx/1.jpg",
       category: "SUV",
-      features: ["4x4", "5 Seats", "Diesel", "Air Conditioning"]
+      features: ["4x4", "5 Seats", "Petrol", "Automatic"]
     },
     {
       id: 2,
       name: "Renault Clio",
-      price: 25,
-      image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb",
+      image: "https://i.postimg.cc/j2LkZv7f/6.jpg",
       category: "Economy",
-      features: ["5 Seats", "Petrol", "Air Conditioning", "Bluetooth"]
+      features: ["5 Seats", "Petrol", "Air Conditioning", "Manual"]
     },
     {
       id: 3,
-      name: "Mercedes C-Class",
-      price: 75,
-      image: "https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-      category: "Luxury",
-      features: ["5 Seats", "Automatic", "Leather Interior", "GPS"]
+      name: "Dacia Stepway",
+      image: "https://i.postimg.cc/Twk4VBpG/4.jpg",
+      category: "SUV",
+      features: ["5 Seats", "Petrol", "Air Conditioning", "Manual"]
+    },
+    {
+      id: 4,
+      name: "Dacia Sandero Automatique",
+      image: "https://i.postimg.cc/4d40hX4B/2.jpg",
+      category: "Economy",
+      features: ["5 Seats", "Petrol", "Air Conditioning", "Automatic"]
+    },
+    {
+      id: 5,
+      name: "Dacia Logan",
+      image: "https://i.postimg.cc/FKVqRYvY/3.jpg",
+      category: "Economy",
+      features: ["5 Seats", "Petrol", "Air Conditioning", "Manual"]
+    },
+    {
+      id: 6,
+      name: "Skoda Fabia",
+      image: "https://i.postimg.cc/2yM9JvQK/5.jpg",
+      category: "Economy",
+      features: ["5 Seats", "Petrol", "Air Conditioning", "Manual"]
     }
   ];
 
@@ -57,10 +74,6 @@ const FeaturedCars = () => {
                   <Badge variant="outline" className="mt-1 bg-secondary/10 text-secondary-foreground">
                     {car.category}
                   </Badge>
-                </div>
-                <div className="text-right">
-                  <span className="text-xl font-bold">${car.price}</span>
-                  <p className="text-sm text-muted-foreground">per day</p>
                 </div>
               </div>
               <div className="mt-4 grid grid-cols-2 gap-y-2 text-sm">

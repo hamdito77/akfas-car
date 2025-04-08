@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -89,10 +88,12 @@ Thank you!
                   <SelectValue placeholder="Select car" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="economy">Economy</SelectItem>
-                  <SelectItem value="suv">SUV</SelectItem>
-                  <SelectItem value="luxury">Luxury</SelectItem>
-                  <SelectItem value="4x4">4x4</SelectItem>
+                  <SelectItem value="dacia-duster-automatique">Dacia Duster Automatique</SelectItem>
+                  <SelectItem value="renault-clio">Renault Clio</SelectItem>
+                  <SelectItem value="dacia-stepway">Dacia Stepway</SelectItem>
+                  <SelectItem value="dacia-sandero-automatique">Dacia Sandero Automatique</SelectItem>
+                  <SelectItem value="dacia-logan">Dacia Logan</SelectItem>
+                  <SelectItem value="skoda-fabia">Skoda Fabia</SelectItem>
                 </SelectContent>
               </Select>
             </div>

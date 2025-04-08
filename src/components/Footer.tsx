@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -8,8 +7,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <Link to="/" className="flex items-center mb-6">
-              <span className="text-white font-bold text-2xl">AKFAS</span>
-              <span className="text-secondary font-bold text-2xl">CAR</span>
+              <img 
+                src="https://i.postimg.cc/dVqGF35H/f760973e-a8df-45fa-88df-4bbbec69fbd0.jpg" 
+                alt="AKFAS CAR Logo" 
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="text-white/80 mb-6">
               Your trusted car rental service in Dakhla, Morocco. Explore the beauty of this unique region with our premium vehicles and exceptional service.

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -28,8 +27,11 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <span className="text-primary font-bold text-2xl">AKFAS</span>
-          <span className="text-secondary font-bold text-2xl">CAR</span>
+          <img 
+            src="https://i.postimg.cc/dVqGF35H/f760973e-a8df-45fa-88df-4bbbec69fbd0.jpg" 
+            alt="AKFAS CAR Logo" 
+            className="h-12 w-auto"
+          />
         </Link>
 
         {isMobile ? (
