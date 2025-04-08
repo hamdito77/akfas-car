@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
+import { MessageSquare, Send } from "lucide-react";
 
 const BookingForm = () => {
   const [pickupLocation, setPickupLocation] = useState("");
@@ -13,10 +14,41 @@ const BookingForm = () => {
   const [pickupDate, setPickupDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
   const [carType, setCarType] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Booking request sent! We'll contact you shortly.");
+    
+    // Validate form
+    if (!pickupLocation || !dropoffLocation || !pickupDate || !returnDate || !carType || !name || !phone) {
+      toast.error("Please fill in all fields");
+      return;
+    }
+    
+    // Prepare WhatsApp message
+    const message = `
+Hello AKFAS CAR,
+
+I would like to make a reservation with the following details:
+- Name: ${name}
+- Phone: ${phone}
+- Pickup Location: ${pickupLocation}
+- Dropoff Location: ${dropoffLocation}
+- Pickup Date: ${pickupDate}
+- Return Date: ${returnDate}
+- Car Type: ${carType}
+
+Thank you!
+    `.trim();
+    
+    // Encode the message for WhatsApp URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Open WhatsApp with the pre-filled message
+    window.open(`https://wa.me/+212600000000?text=${encodedMessage}`, '_blank');
+    
+    toast.success("Redirecting to WhatsApp to complete your booking!");
   };
 
   return (
@@ -24,7 +56,42 @@ const BookingForm = () => {
       <Card className="shadow-lg border-0">
         <CardContent className="p-6">
           <h2 className="text-2xl font-semibold text-center mb-6">Book Your Ride</h2>
-          <form onSubmit={handleSubmit} className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+          <form onSubmit={handleSubmit} className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div>
+              <Label htmlFor="name">Your Name</Label>
+              <Input
+                id="name"
+                placeholder="Enter your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            
+            <div>
+              <Label htmlFor="phone">Phone Number</Label>
+              <Input
+                id="phone"
+                placeholder="Enter your phone number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+            
+            <div>
+              <Label htmlFor="car-type">Car Type</Label>
+              <Select value={carType} onValueChange={setCarType}>
+                <SelectTrigger id="car-type" className="w-full">
+                  <SelectValue placeholder="Select car" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="economy">Economy</SelectItem>
+                  <SelectItem value="suv">SUV</SelectItem>
+                  <SelectItem value="luxury">Luxury</SelectItem>
+                  <SelectItem value="4x4">4x4</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            
             <div>
               <Label htmlFor="pickup">Pickup Location</Label>
               <Select value={pickupLocation} onValueChange={setPickupLocation}>
@@ -75,24 +142,16 @@ const BookingForm = () => {
               />
             </div>
             
-            <div>
-              <Label htmlFor="car-type">Car Type</Label>
-              <Select value={carType} onValueChange={setCarType}>
-                <SelectTrigger id="car-type" className="w-full">
-                  <SelectValue placeholder="Select car" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="economy">Economy</SelectItem>
-                  <SelectItem value="suv">SUV</SelectItem>
-                  <SelectItem value="luxury">Luxury</SelectItem>
-                  <SelectItem value="4x4">4x4</SelectItem>
-                </SelectContent>
-              </Select>
+            <div className="md:col-span-2 lg:col-span-3 mt-4">
+              <Button 
+                type="submit" 
+                className="w-full bg-green-600 hover:bg-green-700 flex items-center justify-center gap-2"
+                size="lg"
+              >
+                <MessageSquare className="w-5 h-5" />
+                Book via WhatsApp
+              </Button>
             </div>
-            
-            <Button type="submit" className="md:col-span-2 lg:col-span-5 mt-2">
-              Search Available Cars
-            </Button>
           </form>
         </CardContent>
       </Card>
@@ -101,3 +160,4 @@ const BookingForm = () => {
 };
 
 export default BookingForm;
+
