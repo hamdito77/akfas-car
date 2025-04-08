@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Available languages
@@ -48,7 +47,7 @@ const translations: Translations = {
     en: "About",
     fr: "À propos",
     es: "Acerca de",
-    ar: "حول"
+    ar: "من نحن"
   },
   "contact": {
     en: "Contact",
@@ -63,28 +62,28 @@ const translations: Translations = {
     ar: "احجز الآن"
   },
   "discover_dakhla": {
-    en: "Discover Dakhla With Our Premium Car Rental Service",
-    fr: "Découvrez Dakhla avec notre service de location de voitures premium",
-    es: "Descubra Dakhla con nuestro servicio premium de alquiler de coches",
-    ar: "اكتشف الداخلة مع خدمة تأجير السيارات الممتازة"
+    en: "Discover Dakhla",
+    fr: "Découvrez Dakhla",
+    es: "Descubre Dakhla",
+    ar: "اكتشف الداخلة"
   },
   "explore_beauty": {
-    en: "Explore the beauty of Morocco's hidden gem with the best vehicles for your journey.",
-    fr: "Explorez la beauté du joyau caché du Maroc avec les meilleurs véhicules pour votre voyage.",
-    es: "Explore la belleza de la joya escondida de Marruecos con los mejores vehículos para su viaje.",
-    ar: "استكشف جمال جوهرة المغرب الخفية مع أفضل المركبات لرحلتك."
+    en: "Explore the beauty of Dakhla with our premium car rental service",
+    fr: "Explorez la beauté de Dakhla avec notre service de location de voitures premium",
+    es: "Explora la belleza de Dakhla con nuestro servicio premium de alquiler de coches",
+    ar: "اكتشف جمال الداخلة مع خدمة تأجير السيارات الفاخرة لدينا"
   },
   "book_car_now": {
     en: "Book a Car Now",
     fr: "Réserver une voiture",
-    es: "Reservar un coche ahora",
+    es: "Reservar un coche",
     ar: "احجز سيارة الآن"
   },
   "explore_fleet": {
     en: "Explore Our Fleet",
-    fr: "Explorer notre flotte",
-    es: "Explore nuestra flota",
-    ar: "استكشف أسطولنا"
+    fr: "Découvrez notre flotte",
+    es: "Explora nuestra flota",
+    ar: "اكتشف أسطولنا"
   }
 };
 
@@ -93,24 +92,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   // Translation function
   const t = (key: string): string => {
-    const keys = key.split('.');
-    let translation = translations;
-    
-    // Handle nested keys
-    for (let i = 0; i < keys.length - 1; i++) {
-      if (translation[keys[i]]) {
-        translation = translation[keys[i]] as unknown as Translations;
-      } else {
-        return key; // Return key if translation not found
-      }
-    }
-    
-    const lastKey = keys[keys.length - 1];
-    if (translation[lastKey] && translation[lastKey][language]) {
-      return translation[lastKey][language];
-    }
-    
-    return key; // Return key if translation not found
+    return translations[key]?.[language] || key;
   };
 
   return (
