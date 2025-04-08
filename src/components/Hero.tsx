@@ -1,15 +1,15 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 import { MessageCircle } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Hero = () => {
   const { t } = useLanguage();
   
   const scrollToBooking = () => {
     // Scroll to booking form
-    const bookingForm = document.querySelector('form');
-    if (bookingForm) {
-      bookingForm.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById('booking');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
   

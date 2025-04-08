@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
   Sheet, 
@@ -14,14 +14,29 @@ const Navbar = () => {
   const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useLanguage();
+  const location = useLocation();
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const navLinks = [
-    { name: t("home"), path: "/" },
-    { name: t("cars"), path: "/#cars" },
-    { name: t("dakhla"), path: "/dakhla" },
-    { name: t("about"), path: "/#about" },
-    { name: t("contact"), path: "/#contact" }
+    { name: t("home"), path: "/", action: () => {} },
+    { name: t("cars"), path: "/", action: () => scrollToSection('cars') },
+    { name: t("dakhla"), path: "/dakhla", action: () => {} },
+    { name: t("about"), path: "/", action: () => scrollToSection('about') },
+    { name: t("contact"), path: "/", action: () => scrollToSection('contact') }
   ];
+
+  const handleNavClick = (link: typeof navLinks[0]) => {
+    if (location.pathname === link.path) {
+      link.action();
+    }
+    setIsOpen(false);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
@@ -64,12 +79,14 @@ const Navbar = () => {
                       key={link.name}
                       to={link.path}
                       className="text-lg font-medium hover:text-primary transition-colors py-2"
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => handleNavClick(link)}
                     >
                       {link.name}
                     </Link>
                   ))}
-                  <Button className="w-full mt-4">{t("book_now")}</Button>
+                  <Button className="w-full mt-4" onClick={() => scrollToSection('booking')}>
+                    {t("book_now")}
+                  </Button>
                 </div>
               </SheetContent>
             </Sheet>
@@ -81,11 +98,14 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 className="font-medium hover:text-primary transition-colors"
+                onClick={() => handleNavClick(link)}
               >
                 {link.name}
               </Link>
             ))}
-            <Button>{t("book_now")}</Button>
+            <Button onClick={() => scrollToSection('booking')}>
+              {t("book_now")}
+            </Button>
             <LanguageSwitcher />
           </div>
         )}

@@ -16,14 +16,32 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@lovable_dev" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   </head>
 
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="root">
+      <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; text-align: center;">
+        <div>
+          <h1 style="font-size: 24px; margin-bottom: 16px;">Loading AKFAS CAR...</h1>
+          <p style="color: #666;">Please wait while we set up your experience</p>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./src/main.tsx"></script>
     <script>
       window.addEventListener('error', function(e) {
         console.error('Error:', e.message);
+        document.getElementById('root').innerHTML = `
+          <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; text-align: center;">
+            <div>
+              <h1 style="font-size: 24px; margin-bottom: 16px;">Something went wrong</h1>
+              <p style="color: #666;">Error: ${e.message}</p>
+              <p style="color: #666; margin-top: 16px;">Please try refreshing the page</p>
+            </div>
+          </div>
+        `;
       });
       window.addEventListener('unhandledrejection', function(e) {
         console.error('Unhandled Promise Rejection:', e.reason);

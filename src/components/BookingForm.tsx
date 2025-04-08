@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { toast } from "sonner";
 import { MessageSquare, Send } from "lucide-react";
 
@@ -56,7 +56,7 @@ Thank you!
   };
 
   return (
-    <section className="py-16 -mt-20 relative z-20 container mx-auto px-4">
+    <section id="booking" className="py-16 -mt-20 relative z-20 container mx-auto px-4">
       <Card className="shadow-lg border-0">
         <CardContent className="p-6">
           <h2 className="text-2xl font-semibold text-center mb-6">Book Your Ride</h2>
