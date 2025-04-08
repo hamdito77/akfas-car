@@ -7,9 +7,9 @@ const FeaturedCars = () => {
     {
       id: 1,
       name: "Dacia Sandero",
-      image: "https://i.postimg.cc/1zQ2spkx/1.jpg",
+      image: "https://i.postimg.cc/4d40hX4B/2.jpg",
       category: "Economy",
-      features: ["4x4", "5 Seats", "Petrol", "Automatic"]
+      features: ["5 Seats", "Petrol", "Manual"]
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ const FeaturedCars = () => {
     {
       id: 4,
       name: "Dacia Duster Automatique",
-      image: "https://i.postimg.cc/4d40hX4B/2.jpg",
+      image: "https://i.postimg.cc/1zQ2spkx/1.jpg",
       category: "SUV",
       features: ["5 Seats", "Gasoil", "Air Conditioning", "2/4"]
     },
