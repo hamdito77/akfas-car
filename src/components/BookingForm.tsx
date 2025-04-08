@@ -16,6 +16,11 @@ const BookingForm = () => {
   const [carType, setCarType] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  
+  // Define both contact numbers
+  const contactNumbers = ["+212661211237", "+212661298842"];
+  // Use the first one as default
+  const primaryWhatsappNumber = contactNumbers[0];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,7 +51,7 @@ Thank you!
     const encodedMessage = encodeURIComponent(message);
     
     // Open WhatsApp with the pre-filled message
-    window.open(`https://wa.me/+212600000000?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/${primaryWhatsappNumber}?text=${encodedMessage}`, '_blank');
     
     toast.success("Redirecting to WhatsApp to complete your booking!");
   };
@@ -151,6 +156,19 @@ Thank you!
                 <MessageSquare className="w-5 h-5" />
                 Book via WhatsApp
               </Button>
+              
+              <div className="text-center text-sm text-muted-foreground mt-4">
+                You can also contact us directly at: 
+                {contactNumbers.map((number, idx) => (
+                  <a 
+                    key={number}
+                    href={`tel:${number}`} 
+                    className="text-primary hover:underline ml-1"
+                  >
+                    {number}{idx < contactNumbers.length - 1 ? " or" : ""}
+                  </a>
+                ))}
+              </div>
             </div>
           </form>
         </CardContent>
@@ -160,4 +178,3 @@ Thank you!
 };
 
 export default BookingForm;
-

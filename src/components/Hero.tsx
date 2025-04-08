@@ -15,7 +15,7 @@ const Hero = () => {
   };
   
   // WhatsApp contact information
-  const whatsappNumber = "+212600000000";
+  const whatsappNumber = "+212661211237";
   const whatsappMessage = encodeURIComponent("Hello AKFAS CAR, I'm interested in renting a car in Dakhla.");
 
   return (
