@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -152,6 +151,25 @@ const Dakhla = () => {
             <Button className="bg-secondary hover:bg-secondary/90 text-white">
               Book Your Car Now
             </Button>
+          </div>
+        </section>
+
+        {/* New Section: Dakhla City Tourism */}
+        <section className="py-16 container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-6 text-center">Dakhla City Tourism</h2>
+          <p className="mb-4 text-muted-foreground text-center">
+            Dakhla is a vibrant city that offers a unique blend of natural beauty and cultural richness. From its stunning beaches to its lively markets, Dakhla is a destination that promises unforgettable experiences for every traveler.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="aspect-w-16 aspect-h-9">
+              <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" alt="Dakhla Beach" className="w-full h-full object-cover rounded-lg shadow-lg" />
+            </div>
+            <div className="aspect-w-16 aspect-h-9">
+              <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" alt="Dakhla Market" className="w-full h-full object-cover rounded-lg shadow-lg" />
+            </div>
+            <div className="aspect-w-16 aspect-h-9">
+              <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" alt="Dakhla Culture" className="w-full h-full object-cover rounded-lg shadow-lg" />
+            </div>
           </div>
         </section>
       </main>
